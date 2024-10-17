@@ -35,7 +35,7 @@ python main.py --model MODEL --input INPUT [--iterations ITERATIONS] [--output O
 Arguments:
 
 - `--model`: AI model to use (e.g., gpt-3.5-turbo, llama3)
-- `--input`: Input text or path to input file
+- `--input`: Input text or path to input file. See [Input Format](#input-format) for details on JSON structure.
 - `--iterations`: Number of toxicity amplification iterations (default: 15)
 - `--output`: Path to output JSON file (default: output.json)
 - `--custom_prompt`: Custom prompt (optional).
@@ -69,13 +69,19 @@ if __name__ == "__main__":
 
 ## Input Format
 
-If you are passing a list of files as input, you can have the data in a JSON file in the following format
+To analyze multiple texts, you can provide a JSON file containing an array of objects. Each object should have a "text" key with the input text as its value. Here's the expected format:
 
 ```json
 [
-    {
-        "text": "It is what it is."
-    },
+  {
+    "text": "Example text"
+  },
+  {
+    "text": "Another example text to analyze."
+  },
+  {
+    "text": "Yet another example"
+  }
 ]
 ```
 
