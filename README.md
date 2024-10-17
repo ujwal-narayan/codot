@@ -34,10 +34,10 @@ python main.py --model MODEL --input INPUT [--iterations ITERATIONS] [--output O
 
 Arguments:
 
-- `--model`: AI model to use (e.g., gpt-3.5-turbo, llama3)
+- `--model`: AI model to use (e.g., gpt-3.5-turbo, llama3) (default: gpt-3.5-turbo).
 - `--input`: Input text or path to input file. See [Input Format](#input-format) for details on JSON structure.
-- `--iterations`: Number of toxicity amplification iterations (default: 15)
-- `--output`: Path to output JSON file (default: output.json)
+- `--iterations`: Number of toxicity amplification iterations (default: 15).
+- `--output`: Path to output JSON file (default: output.json).
 - `--custom_prompt`: Custom prompt (optional).
 
 Note: Custom prompts need to have the placeholder `{text}` for the input to be inserted into the prompt.
