@@ -1,6 +1,6 @@
-# Code-of-thought prompting: Probing AI Safety with Code
+# Probing AI Safety with Source Code
 
-This repository contains the source code for the paper "Code-of-thought prompting: Probing AI Safety with Code". Our work introduces a novel model interaction paradigm called Code of Thought (CoDoT) prompting, which transforms natural language prompts into pseudo-code to systematically evaluate the safety of Large Language Models (LLMs).
+This repository contains the source code for the paper " Probing AI Safety with Source Code". Our work introduces a novel model interaction paradigm called Code of Thought (CoDoT) prompting, which transforms natural language prompts into pseudo-code to systematically evaluate the safety of Large Language Models (LLMs).
 
 This project demonstrates that current AI safety efforts fall short of ensuring safe, non-toxic outputs from LLMs. Using CoDoT, we show that a wide range of large language models can emit highly toxic outputs with the potential to cause significant harm. Our findings reveal a staggering 16.5× increase in toxicity on GPT-4 Turbo and a massive 4.6× increase on average across multiple models and languages.
 
@@ -127,6 +127,8 @@ For open-source models, we use [Together.ai](https://www.together.ai/) as the se
 - llama3
 - wizardlm2
 - mixtral
+- deepseek v3
+- deepseek r1
 
 You can add or modify model mappings in the `MODEL_MAPPINGS` dictionary in `src/constants.py`. For example:
 
