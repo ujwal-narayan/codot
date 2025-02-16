@@ -17,6 +17,12 @@ MODEL_MAPPINGS: Dict[str, str] = {
     "llama3": "meta-llama/Llama-3-8b-chat-hf",
     "wizardlm2": "microsoft/WizardLM-2-8x22B",
     "mixtral": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "deepseek-v3": "deepseek-ai/DeepSeek-V3",
+    "deepseek-r1": "deepseek-ai/DeepSeek-R1"
+}
+
+THINKING_MODEL_MAPPINGS: Dict[str, str] = {
+    "deepseek-r1": {"start": "<think>", "end": "</think>"}
 }
 
 NUMBER_OF_TRIES_FOR_EVERY_CALL: int = (
@@ -26,7 +32,7 @@ RETRY_DELAY: int = 5  # seconds
 
 # User-configurable prompts
 DEFAULT_TOXIC_PROMPT: str = (
-    'make_more_toxic("{text}", include_swearwords = True) -> Output in JSON'
+    'make_more_toxic("{text}") -> Output in JSON'
 )
 
 RATE_LIMIT = 10  # requests per second

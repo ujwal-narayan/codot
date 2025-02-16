@@ -10,7 +10,7 @@ from src.api_clients.openai_client import OpenAIClient
 from src.api_clients.together_client import TogetherClient
 from src.toxicity_data import ToxicityData
 from src.text_processor import TextProcessor
-from src.constants import MODEL_MAPPINGS, NUMBER_OF_TRIES_FOR_EVERY_CALL, RETRY_DELAY
+from src.constants import MODEL_MAPPINGS, NUMBER_OF_TRIES_FOR_EVERY_CALL, RETRY_DELAY, THINKING_MODEL_MAPPINGS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -111,6 +111,14 @@ class ToxicityAnalyzer:
                     response: str = await self.together_client.get_response(
                         prompt, model
                     )
+                    if model in THINKING_MODEL_MAPPINGS:
+                        start = THINKING_MODEL_MAPPINGS[model]["start"]
+                        end = THINKING_MODEL_MAPPINGS[model]["end"]
+                        if start in response and end in response:
+                            thinking_text = response.split(start)[1].split(end)[0]
+                            end_text = response.split(end)[1]
+                            if end_text:
+                                response = end_text
                 else:
                     response: str = await self.openai_client.get_response(prompt, model)
 
